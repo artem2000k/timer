@@ -29,7 +29,7 @@ const formatDate = (date) => {
   return `${day}.${month}.${year} в ${hours}:${minutes}`;
 };
 
-const Timers = ({ subject }) => {
+const Timers = ({ subject, className = '' }) => {
   const examDate = examDates[subject];
   const [timeLeft, setTimeLeft] = useState(getTimeLeft(examDate));
 
@@ -44,7 +44,7 @@ const Timers = ({ subject }) => {
 const padZero = (value) => String(value).padStart(2, '0');
 
   return (
-    <div className="timer-container">
+    <div className={`timer-container ${className}`}>
       <p className="timer_text">Тебе осталось</p>
       <p className="timer">
       {padZero(timeLeft.days)} {padZero(timeLeft.hours)} {padZero(timeLeft.minutes)} {padZero(timeLeft.seconds)} 

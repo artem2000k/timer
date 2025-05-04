@@ -3,7 +3,7 @@ import './app-header.css'
 
 const subjects = ['Математика', 'Русский', 'Информатика'];
 
-const AppHeader = ({ selected, onSelect }) => {
+const AppHeader = ({ selected, onSelect, className = '' }) => {
   const [isModalOpen, setModalOpen] = useState(false);
 
   const handleSelect = (subject) => {
@@ -13,7 +13,7 @@ const AppHeader = ({ selected, onSelect }) => {
 
   return (
     <>
-      <header className="app-header">
+      <header className={`app-header ${className}`}>
         <h1 className="title" onClick={() => setModalOpen(true)}>
           {selected}
           <span className="icon">▼</span>
@@ -25,7 +25,7 @@ const AppHeader = ({ selected, onSelect }) => {
           <div className="modal-backdrop" onClick={() => setModalOpen(false)} />
           <div className="modal">
             <ul className="subject-list">
-              {subjects.map((subject) => (
+              {['Математика', 'Русский', 'Информатика'].map((subject) => (
                 <li key={subject} onClick={() => handleSelect(subject)}>
                   {subject}
                 </li>
@@ -37,5 +37,6 @@ const AppHeader = ({ selected, onSelect }) => {
     </>
   );
 };
+
 
 export default AppHeader;

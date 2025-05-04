@@ -1,9 +1,9 @@
 import React from "react";
 import './footer.css';
 
-const Footer = () => {
+const Footer = ({ className = '' }) => {
     return (
-        <div className="footer">
+        <div className={`footer ${className}`}>
             <span>Arbeit macht Frei</span>
         </div>
     )
